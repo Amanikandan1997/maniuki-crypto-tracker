@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+
 import './App.css';
 
+import Header from './Component/Header';
+import Hero from './Component/Hero'
+import { useState } from 'react';
+
+
 function App() {
+  const [currency, setCurrency] = useState('usd');
+  const currentYear = new Date().getFullYear();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bottom">
+     <Header onCurrencyChange={setCurrency} />
+
+     <Hero currency={currency} />
+     <p className='animate-charcter'>© 2024-{currentYear} Manikandan UKI Developed. All Rights Reserved.</p>
     </div>
   );
 }
